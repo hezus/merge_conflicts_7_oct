@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20160805060829) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "dinosaurs", force: :cascade do |t|
     t.string   "name"
     t.integer  "age"
@@ -22,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160805060829) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "valley_id"
-    t.index ["valley_id"], name: "index_dinosaurs_on_valley_id", using: :btree
+    t.index ["valley_id"], name: "index_dinosaurs_on_valley_id"
   end
 
   create_table "valleys", force: :cascade do |t|
@@ -31,5 +28,4 @@ ActiveRecord::Schema.define(version: 20160805060829) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "dinosaurs", "valleys"
 end

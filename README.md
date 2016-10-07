@@ -2,33 +2,36 @@
 
 Merging should always be done on Github using the pull request option. This is a good way to keep track of changes.
 
-Conflicts appear when git cannot merge your files automatically. This is because someone else worked on the same code as you did. 
+Conflicts appear when git cannot merge your files automatically. This is because someone else worked on the same code as you did.
 
 Conflicts should **ALWAYS** be fixed before you merge your branch to master. So always test before you commit.
 
-You fix a conflict by reading the file and the previous and understanding the reason for the conflict. 
+You fix a conflict by reading the file and the previous and understanding the reason for the conflict.
 
 If you cannot solve a conflict by yourself, you should ask the person who created the code you are conflicting with because you don't want to break their work. Force pushing **NEVER** solves a conflict.
-  
+
 ## INTRO  
 
-There are several people working on the /show page of the dinosaur project. They all have their own task. 
+There are several people working on the /show page of the dinosaur project. They all have their own task.
 
 > Ben: The dinosaur name should be a H2 and the site title should become a h1. Also the h2 needs styling and add the h1
 
 > Wouter: The dinosaur name needs a css class added to it. It will make it Blink. Also add a background of stars.
 
-> Miriam: The dinosaur name needs an era it was living in. Also add the era in the DB and seeds. 
+> Miriam: The dinosaur name needs an era it was living in. Also add the era in the DB and seeds.
 
 > Matt: A dinosaur name needs the sound it makes. Also add the sound in the DB and seeds.
 
 ---
+## Download a dinosaurs
 
-- We will practice the proper workflow for merging work in git. 
+
+=======
+- We will practice the proper workflow for merging work in git.
 - The four branches with work have been premade.
 - Conflicts will arise when you try to make a pull request and we will solve them with a mergetool.
 - You will merge from the branch to master by creating a pull request.
-- Before you merge a pull request, you always test it on your local machine. 
+- Before you merge a pull request, you always test it on your local machine.
 
 ## 0. Setup
 
@@ -43,8 +46,8 @@ Make a full local copy of the exercise repository
 - `git checkout -b feature/h2 origin/feature/h2`
 - `git checkout -b feature/sound origin/feature/sound`
 - `git checkout -b feature/stars origin/feature/stars`
- 
-Create a new repository on your github account and push your local copy to it. 
+
+Create a new repository on your github account and push your local copy to it.
 
 - `git remote add new-origin git@github.com:your_account/new-repository.git`
 - `git push --all new-origin`
@@ -55,9 +58,9 @@ Create a new repository on your github account and push your local copy to it.
 
 ## 0. Install a mergetool: Meld
 
-**If you already have a working mergetool you are happy with, you can skip this step.** 
+**If you already have a working mergetool you are happy with, you can skip this step.**
 
-### OSX 
+### OSX
 
 - Download meld here: https://yousseb.github.io/meld/
 - edit your `~/.gitconfig` and add the following lines (`nano ~/.gitconfig` in your terminal)
@@ -103,7 +106,7 @@ So to start off easy, ben starts by merging his work on the header. He changes t
 - Go to github
 - Go to the overview of branches
 - Create a pullrequest for features/h2
-- Merge it 
+- Merge it
 
 ## 2. Add Wouters work
 
@@ -131,9 +134,9 @@ Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 - Oops, there are some conflicts.
- 
+
 ### 2.3 Resolve issues
- 
+
 - `git mergetool` to launch meld
 - this should display a 3 pane interface to help you with merging
 - On the left is your current source, On the right is the remote source, In the middle in the result
@@ -180,7 +183,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 ###3.3 Resolve issues
- 
+
 - `git mergetool` to launch meld
 - If you make a mistake during the merge, use `git merge --abort` and start again with `git merge master`
 - For the `dinosaurs.scss` file, save all the css classes
@@ -191,8 +194,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 ###3.4 Test it
 
-- This change contained a database change too. So you have to run `rails db:migrate` and `rails db:seed` 
-- Start the rails server to check the progress 
+- This change contained a database change too. So you have to run `rails db:migrate` and `rails db:seed`
+- Start the rails server to check the progress
 - The merge worked but we forgot a issue with the css because of the change to `<h2>` Fix this by changing `h1 small{` to `h2 small{` in the dinosaur css file.
 
 ###3.5 Finish the merge
@@ -203,6 +206,3 @@ Automatic merge failed; fix conflicts and then commit the result.
 ##4 Add Matts work
 
 Repeat the same process as before
-
-
-
